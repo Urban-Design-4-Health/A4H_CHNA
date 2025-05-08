@@ -93,8 +93,8 @@ img {
   cursor: pointer;
 }
 
-.CFC_logo {
-  background-color: rgba(35, 45, 80, 90%);
+.A4H_logo {
+  background-color: gba(255, 255, 255, 1);
   padding: 1px 3px;
   z-index: 1;
   position: absolute;
@@ -154,7 +154,7 @@ img {
   border-radius: 10px;
 }
 
-.legendStyle = {
+.legendStyle {
   background-color: rgb(35 55 75 / 90%);
   border-radius: 3px;
   bottom: 30px;
@@ -168,11 +168,11 @@ img {
   z-index: 1;
 }
 
-.legendHeadingStyle = {
+.legendHeadingStyle {
   margin: 2px;
 }
 
-.legendSpanStyle = {
+.legendSpanStyle {
   border-radius: 10px;
   display: inline-block;
   height: 10px;

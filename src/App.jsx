@@ -1,5 +1,5 @@
 // Start the REACT VITE Server
-// cmd:  cd BB_MapBoxGL
+// cmd:  cd CHNA_A4H
 //       npm run dev
 //  open browser:  http://localhost:5173/
 //
@@ -19,7 +19,7 @@ import 'mapboxgl-legend/dist/style.css';
 import metfile from '../data/metrics.json';
 
 // load image fileSize
-import CFClogo from './assets/CFC_logo.png';
+import A4Hlogo from './assets/A4H_logo.png';
 import UD4Hlogo from './assets/Logo2.png';
 import RedHatch from './assets/red_thin.png';
 import HatchLeg from './assets/hatch_leg.png';
@@ -28,8 +28,8 @@ import HatchLeg from './assets/hatch_leg.png';
 //import METRICS from '../data/Metrics_for_website_4326.geojson?raw';
 
 // Set constant values
-const INITIAL_CENTER = [-81.6, 28.6]
-const INITIAL_ZOOM = 9.5
+const INITIAL_CENTER = [-82.4, 27.9]
+const INITIAL_ZOOM = 8.5
 
 // List of Overlay Maps for Pulldown
 const ov_layers = [
@@ -139,33 +139,32 @@ function App() {
         // Add Metrics
         mapRef.current.addSource('CBGs', {
           type: 'geojson',
-          data: '/data/Metrics_for_website_4326.geojson'
+          data: '/data/All_Mets_for_website_4326.geojson'
         });
 		
-        
         mapRef.current.addSource('Water', {
           type: 'geojson',
-          data: '/data/Water_for_website_4326.geojson'
+          data: '/data/Wat_for_website_4326.geojson'
         });
         
         mapRef.current.addSource('PAD', {
           type: 'geojson',
-          data: '/data/PAD_for_website_4326.geojson'
+          data: '/data/PD_for_website_4326.geojson'
         });
         
         mapRef.current.addSource('ZR', {
           type: 'geojson',
-          data: '/data/ZeroPop_for_website_4326.geojson'
+          data: '/data/ZPop_for_website_4326.geojson'
         });
         
         mapRef.current.addSource('CNTY', {
           type: 'geojson',
-          data: '/data/County_for_website_4326.geojson'
+          data: '/data/Cnty_for_website_4326.geojson'
         });
         
         mapRef.current.addSource('RDS', {
           type: 'geojson',
-          data: '/data/Roads_for_website_4326.geojson'
+          data: '/data/Rds_for_website_4326.geojson'
         });
         
         // Add layers
@@ -197,7 +196,7 @@ function App() {
 		// Add Overlay
         mapRef.current.addSource('OL', {
           type: 'geojson',
-          data: '/data/Metrics_for_website_4326.geojson'
+          data: '/data/All_Mets_for_website_4326.geojson'
         });
 		
 	    // Add overlay pattern
@@ -243,7 +242,7 @@ function App() {
           source: 'Water',
           layout: {},
           paint: {
-            'fill-color': "#aad2e3",
+            'fill-color': "#95d8f5",
             'fill-opacity': 1
           }
         });
@@ -269,8 +268,9 @@ function App() {
           layout: {},
           paint: {
             'line-color': "black",
-            'line-width': 2,
-            'line-opacity': 1
+            'line-width': 1.5,
+            'line-dasharray': [2, 2],
+            'line-opacity': .8
           }
         });
         
@@ -473,7 +473,7 @@ function App() {
     <>
 	  {/* Titlebar */}
       <div className="titlebar">
-        <p className="pageTitle">Central Florida Collaborative</p>
+        <p className="pageTitle">All4HealthFl Collaborative</p>
         <p className="pageSubtitle">2025 Community Health Needs Assessment</p>
 		<p className="pageSubtitle2">Neighborhood Health Metrics</p>
       </div>
@@ -510,9 +510,11 @@ function App() {
 		  />
 		</div>   
 		
-      {/* CFC Logo */}
-      <div className="CFC_logo">
-        <img src={CFClogo} height={120} alt="CFC Logo" />
+      {/* A4H Logo */}
+      <div className="A4H_logo">
+        <a href="https://www.all4healthfl.org" target="_blank" rel="noopener noreferrer">
+        <img src={A4Hlogo} height={100} alt="A4H Logo" />
+        </a>
       </div>
       
       {/* UD4H Logo */}
