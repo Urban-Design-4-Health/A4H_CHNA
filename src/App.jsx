@@ -4,6 +4,10 @@
 //  open browser:  http://localhost:5173/
 //
 
+
+
+
+
 //mapboxgl.accessToken = 'pk.eyJ1IjoidWQ0aCIsImEiOiJjbDVyNXlmeTEwMGoyM2JwYm9oYnlzc3Q0In0.-DHdTNsriTaq0uGL_BBTYg';
 
 // Import components and libraries
@@ -139,22 +143,22 @@ function App() {
         // Add Metrics
         mapRef.current.addSource('CBGs', {
           type: 'geojson',
-          data: '/data/All_Mets_for_website_4326.geojson'
+          data: '/data/Mets_Small.geojson'
         });
 		
         mapRef.current.addSource('Water', {
           type: 'geojson',
-          data: '/data/Wat_for_website_4326.geojson'
+          data: '/data/Wa.geojson'
         });
         
         mapRef.current.addSource('PAD', {
           type: 'geojson',
-          data: '/data/PD_for_website_4326.geojson'
+          data: '/data/Pd.geojson'
         });
         
         mapRef.current.addSource('ZR', {
           type: 'geojson',
-          data: '/data/ZPop_for_website_4326.geojson'
+          data: '/data/Zp.geojson'
         });
         
         mapRef.current.addSource('CNTY', {
@@ -164,7 +168,7 @@ function App() {
         
         mapRef.current.addSource('RDS', {
           type: 'geojson',
-          data: '/data/Rds_for_website_4326.geojson'
+          data: '/data/Rds.geojson'
         });
         
         // Add layers
@@ -189,14 +193,14 @@ function App() {
               currentMetric.t4+0.000001, currentMetric.c5,
               currentMetric.t5, currentMetric.c5
             ],
-            'fill-opacity': .8
+            'fill-opacity': .6
           }
         });
 		
 		// Add Overlay
         mapRef.current.addSource('OL', {
           type: 'geojson',
-          data: '/data/All_Mets_for_website_4326.geojson'
+          data: '/data/Mets_Small.geojson'
         });
 		
 	    // Add overlay pattern
