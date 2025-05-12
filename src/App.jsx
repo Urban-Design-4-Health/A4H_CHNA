@@ -151,6 +151,10 @@ function App() {
           data: '/data/Wa.geojson'
         });
         
+        mapRef.current.addSource('Gulf', {
+          type: 'geojson',
+          data: '/data/Gu.geojson'
+        });
         mapRef.current.addSource('PAD', {
           type: 'geojson',
           data: '/data/Pd.geojson'
@@ -168,7 +172,7 @@ function App() {
         
         mapRef.current.addSource('RDS', {
           type: 'geojson',
-          data: '/data/Rds.geojson'
+          data: '/data/RD.geojson'
         });
         
         // Add layers
@@ -246,11 +250,39 @@ function App() {
           source: 'Water',
           layout: {},
           paint: {
-            'fill-color': "#95d8f5",
+            'fill-color': "#a1deff",
             'fill-opacity': 1
           }
         });
         
+
+        
+        // Add county boundary layer
+        mapRef.current.addLayer({
+          id: 'CNTY-layer',
+          type: 'line',
+          source: 'CNTY',
+          layout: {},
+          paint: {
+            'line-color': "black",
+            'line-width': 2,
+            'line-dasharray': [2, 2],
+            'line-opacity': .8
+          }
+        });
+        
+        // Add gulf of america layer
+        mapRef.current.addLayer({
+          id: 'gulf-layer',
+          type: 'fill',
+          source: 'Gulf',
+          layout: {},
+          paint: {
+            'fill-color': "#a1deff",
+            'fill-opacity': 1
+          }
+        });
+
         // Add roads layer
         mapRef.current.addLayer({
           id: 'roads-layer',
@@ -263,21 +295,6 @@ function App() {
             'line-opacity': 1
           }
         });
-        
-        // Add county boundary layer
-        mapRef.current.addLayer({
-          id: 'CNTY-layer',
-          type: 'line',
-          source: 'CNTY',
-          layout: {},
-          paint: {
-            'line-color': "black",
-            'line-width': 1.5,
-            'line-dasharray': [2, 2],
-            'line-opacity': .8
-          }
-        });
-        
 
         mapRef.current.addLayer({
           id: 'cbg-olayer',
